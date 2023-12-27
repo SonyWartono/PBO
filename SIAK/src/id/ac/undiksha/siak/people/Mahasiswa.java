@@ -1,14 +1,17 @@
 // Mahasiswa.java
 package id.ac.undiksha.siak.people;
 
+import id.ac.undiksha.siak.organisasi.Prodi;
+
 public class Mahasiswa extends Manusia {
     private String nim;
-    private String prodi;
+    //private String prodi;
+
 
     public Mahasiswa() {
     	super();
         this.nim = "<NIM>";
-        this.prodi = "<Prodi>";
+//      this.prodi = "<Prodi>";
     }
 
     public Mahasiswa(
@@ -21,7 +24,7 @@ public class Mahasiswa extends Manusia {
     ) {
 		super(nama, alamat, tanggalLahir, jenisKelamin);
 		this.nim = nim;
-		this.prodi = prodi;
+		//this.prodi = prodi;
     }
 
     public String getNim() {
@@ -32,19 +35,25 @@ public class Mahasiswa extends Manusia {
         this.nim = nim;
     }
 
-    public String getProdi() {
-        return prodi;
-    }
+//    public String getProdi() {
+//        return prodi;
+//    }
+//
+//    public void setProdi(String prodi) {
+//        this.prodi = prodi;
+//    }
+    private Prodi prodi = new Prodi();
+    
 
-    public void setProdi(String prodi) {
-        this.prodi = prodi;
-    }
+    public Prodi getProdi() {
+		return prodi;
+	}
 
-    public void printAll() {
+	public void printAll() {
         System.out.println("Mahasiswa");
         System.out.println("NIM \t\t:" + getNim());
         super.printAll();
-        System.out.println("Program Studi \t:" + getProdi());
+        System.out.println("Program Studi \t:" + getProdi().getKodeProdi() +" "+ getProdi().getNamaProdi());
         System.out.println("------------------------------");
     }
 }
